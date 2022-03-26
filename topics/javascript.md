@@ -1,6 +1,5 @@
 # Language
 
-
 ## Variables
 
 ```javascript
@@ -23,9 +22,23 @@ const y = undefined;   // Undefined
 With typeof we get the data type of a variable
 
 ```javascript
-console.log(typeofname);    //String
+console.log(typeof name);    //String
 ```
 
+With length we get the lenght of a variable, we can use toUppercase()/toLowerCase() to change the case, 
+-   substring 
+```javascript
+console.log(name.substring(0,3);    //Jo
+```
+-   split a string into an array
+```javascript
+console.log(name.split("");    // ["J" "O" "H" "N"] 
+
+const s = "technology, computers, it ,code";
+console.log(name.split(" ");    // ["technology" "computers" "it" "code"] 
+```
+
+## Arrays
 
 ## Document Object Model (DOM)
 
