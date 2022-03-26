@@ -88,21 +88,21 @@ consolelog(person.hobbies[1]; //movies
 - ES6 allows you to get the values of an object out and asing them to a new variable for easier access. 
  ```javascript
 const {firstName, lastName, adress{city}} = person;
-consolelog(firstName);  //John
-consolelog(city);  //Boston
+console.log(firstName);  //John
+console.log(city);  //Boston
 ```
 ## Loops
 ### For
 
 ```javascript
 for(let i = 0; i<10; i++) {
-consolelog(i);}
+console.log(i);}
 ```
 ### While
 ```javascript
 let i =0;
 while(i<10) {
-consolelog(i);
+console.log(i);
 i++;}
 ```
 ### Loop through Arrays
@@ -123,7 +123,7 @@ text: How are you?
 }
 ]
 arr.forEach(function(variable){
-consolelog.variable.text}
+console.log.variable.text}
 ```
 
 ### Map
@@ -135,10 +135,46 @@ return variable.text;
 ## Conditionals
 ```javascript
 const x = 10;
-if (x == 10){consolelog("X es un 10!")}
-else if (x>10) {consolelog("X es mayor a 10")}
-else {consolelog("X es menor a 10")}
+if (x == 10){console.log("X es un 10!")}
+else if (x>10) {console.log("X es mayor a 10")}
+else {console.log("X es menor a 10")}
 ```
+- SHORTHAND
+```
+const x = 10;
+const color = x > 10 ? "red" : "blue";  // blue
+```
+## Switch
+```javascript
+switch(color) {
+case "red";
+console.log("color is red");
+break;
+
+case "blue";
+console.log("color is blue");
+break;
+
+default;
+console.log("color isn't red or blue");
+break;
+}
+```
+## Functions
+```javascript
+function addNums(num1 = 1, num2 = 1){  //Le puedo asignar valores predefinidos a una función
+return num1 + num2;
+}
+cosole.log(addNums(5,5));  //10
+cosole.log(addNums());  //2
+```
+- Arrow Function
+Crea una variable con el nombre de tu función y los parametros y después le dices lo que hace con una flecha
+```javascript
+const addNums (num1, num2) => num1+num2  //Si es solo una expreción lo que hay dentro de la función no hace falta que pongas {} ni return
+cosole.log(addNums(5,5));  //10
+```
+
 ## Document Object Model (DOM)
 
 The Document Object Model (DOM) is an application programming interface (API) for HTML as well as XML.
