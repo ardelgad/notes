@@ -236,7 +236,7 @@ document.querySelector(.items).innerText = "Hi";
 document.querySelector(.items).innerHTML = '<h1>Hey</h1>';
 ```
 
-##Events
+## Events
 ```
 const btn = document.querySelector(button);
 btn.addEventListener("click", (e) => {   //If it is a form we should put e.preventDefault(); so the page doesn't recharged after clicked.
