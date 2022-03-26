@@ -1,4 +1,4 @@
-# Language
+# JavaScript
 
 ## Variables
 
@@ -144,7 +144,7 @@ else {console.log("X es menor a 10")}
 const x = 10;
 const color = x > 10 ? "red" : "blue";  // blue
 ```
-## Switch
+### Switch
 ```javascript
 switch(color) {
 case "red";
@@ -161,76 +161,6 @@ break;
 }
 ```
 ## Functions
-```javascript
-function addNums(num1 = 1, num2 = 1){  //Le puedo asignar valores predefinidos a una función
-return num1 + num2;
-}
-cosole.log(addNums(5,5));  //10
-cosole.log(addNums());  //2
-```
-- Arrow Function
-Crea una variable con el nombre de tu función y los parametros y después le dices lo que hace con una flecha
-```javascript
-const addNums (num1, num2) => num1+num2  //Si es solo una expreción lo que hay dentro de la función no hace falta que pongas {} ni return
-cosole.log(addNums(5,5));  //10
-```
-
-## Document Object Model (DOM)
-
-The Document Object Model (DOM) is an application programming interface (API) for HTML as well as XML.
-
-The DOM maps out an entire page as a document composed of a hierarchy of nodes like a tree structure and using the DOMAPI nodes can be removed, added, and replaced.
-
-### DOM level 1
-
-Consisted of two modules: the DOM Core, which provided a way to map the structure of an XML-based document to allow for easy access to and manipulation of any part of a document, and the DOM HTML, which extended the DOM Core by adding HTML-specific objects and methods.
-
-### DOM Level 2
-
-Introduced several new modules of the DOM to deal with new types of interfaces:
-
--   DOM Views — describes interfaces to keep track of the various views of a document (that is, the document before CSS styling and the document after CSS styling)
--   DOM Events — describes interfaces for events
--   DOM Style — describes interfaces to deal with CSS-based styles
--   DOM Traversal and Range — describes interfaces to traverse and manipulate a document tree
-
-### DOM Level 3
-
-Further extends the DOM with the introduction of methods to load and save documents in a uniform way (contained in a new module called DOM Load and Save) as well as methods to validate a document (DOM Validation). In Level 3, the DOM Core is extended to support all of XML 1.0, including XML Infoset, XPath, and XML Base.
-
-Note that the DOM is not JavaScript-specific, and indeed has been implemented in numerous other languages. For Web browsers, however, the DOM has been implemented using ECMAScript and now makes up a large part of the JavaScript language.
-
-Other DOMs
-
--   Scalable Vector Graphics (SVG)
--   Mathematical Markup Language (MathML)
--   Synchronized Multimedia Integration Language (SMIL)
-
-## Browser Object Model (BOM)
-
-Browsers feature a Browser Object Model (BOM) that allows access and manipulation of the browser window. Using the BOM, developers can move the window, change text in the status bar, and perform other actions that do not directly relate to the page content.
-
-Because no standards exist for the BOM, each browser has its own implementation.
-
-# Event Loop
-
-![TEA](../pics/js_event_loop.png)
-
-Based on [Philip Roberts' talk](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
-
-The Javascript runtime only knows of the `heap` and `call stack`.
-
-The rest of the functionality, like async stuff, is provided in the form of `WebAPIs` by the browser/Node.
-
-For async operations, the `callback` is offloaded into a separate `queue`, which is emptied by the `event loop` one by one as soon as the `stack` becomes empty.
-
-Without the `event loop` the stack would be blocked during the whole duration of the async operaiton, basically freezing the app.
-
-# Hoisting
-
-Both variable and function declarations are hoisted to the top on code execution, meaning that their order is irrelevant i.e functions can be called before they are declared.
-
-# Functions
 
 Functions are first class objects - a function is a regular object of type `function`. The function object type has a constructor: `Function`.
 
@@ -238,86 +168,84 @@ There are several ways to declare a function.
 
 The difference is how the function interacts with the external components (the outer scope, the enclosing context, object that owns the method, etc) and the invocation type (regular function invocation, method invocation, constructor call, etc).
 
-## Function declaration
-
-**Hoisted**. Available immediately after parsing, before any code is executed.
-
-The function declaration creates a variable in the current scope with the identifier equal to function name. This variable holds the function object.
 
 ```javascript
-function foo() {}
-foo();
+function addNums(num1 = 1, num2 = 1){  //Le puedo asignar valores predefinidos a una función
+return num1 + num2;
+}
+cosole.log(addNums(5,5));  //10
+cosole.log(addNums());  //2
+```
+### Arrow Function
+Crea una variable con el nombre de tu función y los parametros y después le dices lo que hace con una flecha
+```javascript
+const addNums (num1, num2) => num1+num2  //Si es solo una expreción lo que hay dentro de la función no hace falta que pongas {} ni return
+cosole.log(addNums(5,5));  //10
 ```
 
-Use them when a function expression is not appropriate or when it is important that that a function is hoisted.
-
-## Function expression
-
-**Not hoisted.** Available only after the variable assignment is executed.
-
-```javascript
-// Named
-let bar = function foo() {};
-bar();
-foo(); // undefined
+## Classes
 ```
+class Person {
+constructor(firstName, lastName, dob){
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.dob = new Date(dob);
+  }
+function getBirthYear () {
+return this.dob.getFullYear();}
 
-Use them when you are doing recursion or want to see the function name in the debugger.
-
-```javascript
-// Anonymous
-let foo = function() {};
-foo();
-
-let bar = foo();
-bar(); // Error: not a function.
+function getFullName() {
+return `${this.firstName} ${this.lastName}`;}
+}
 ```
-
-Use them when you want to pass a function as an argument to another function or you want to form a closure.
-
-## IIFE - immediately Invoked Function Expression
-
+- Befor ES6 Classes didn't exits, they used functions instead
 ```javascript
-(function() {
-    // ...
-})();
-```
-
-Use them for the module pattern.
-
-## ES6
-
-Binds `this` automatically.
-
-```javascript
-let foo = () => {};
-```
-
-Use them when you want to lexically bind the `this` value.
-
-## Function constructor (Avoid this)
-
-```javascript
-let foo = new Function();
-```
-
-## Other
-
--   Use function declaration generators `function* foo(){}` when you want to exit and then re-enter a function.
--   Use function expression generators `let foo = function* [name](){}` when you want to exit and then re-enter a nested function.
-
-## Function parameters vs arguments
-
-An argument is the value supplied to the parameter.
-
-```javascript
-function foo(bar) {
-    // bar is a parameter
-    console.log(bar);
+function Person(firstName, lastName, dob) {
+this.firstName = firstName;  //this allow us to use the info that is passed later
+this.lastName = lastName;
+this.dob = new Date(dob);
 }
 
-foo("baz"); // baz is an argument.
+Person.prototype.getBirthYear = function() {  //they are inside the proto so they don't show when we call the function
+return this.dob.getFullYear();}
+
+Person.prototype.getFullName = function() {
+return `${this.firstName} ${this.lastName}`;}
 ```
+
+## Document Object Model (DOM)
+
+The Document Object Model (DOM) maps out an entire page as a document composed of a hierarchy of nodes like a tree structure and using the DOMAPI nodes can be removed, added, and replaced.
+
+```javascript
+document.getElementById();
+document.getElementsByClassName();
+ocument.getElementsByTAgName();
+
+document.querySelector();  //Can select by Id's Class and tags
+document.querySelectorAll();  //Select all of the items
+```
+### Make changes in the page
+```javascript
+document.querySelector(.items).remove();
+document.querySelector(.items).style.background = "#ccc";
+document.querySelector(body).classList.add = ".bgColor"
+
+document.querySelector(.items).textContent = "Hello";
+document.querySelector(.items).innerText = "Hi";
+document.querySelector(.items).innerHTML = '<h1>Hey</h1>';
+```
+
+##Events
+```
+const btn = document.querySelector(button);
+btn.addEventListener("click", (e) => {   //If it is a form we should put e.preventDefault(); so the page doesn't recharged after clicked.
+console.log("click"); 
+```
+
+# Hoisting
+
+Both variable and function declarations are hoisted to the top on code execution, meaning that their order is irrelevant i.e functions can be called before they are declared.
 
 # Useful
 
