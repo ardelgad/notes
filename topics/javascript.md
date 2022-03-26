@@ -54,8 +54,7 @@ const fruits = ["apples", "oranges", "pears"];
  ```javascript
 fruits.push(mangos); //["apples", "oranges", "pears", "mangos"];
 ```
--   unshift
-- Adds a value to the beginning of the Array
+-   unshift => Adds a value to the beginning of the Array
 ```javascript
 fruits.unshift(mangos);
 fruits.push(mangos); //["mangos", "apples", "oranges", "pears"];
