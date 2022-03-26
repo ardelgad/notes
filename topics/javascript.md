@@ -91,8 +91,8 @@ const {firstName, lastName, adress{city}} = person;
 consolelog(firstName);  //John
 consolelog(city);  //Boston
 ```
-##Loops
-###For
+## Loops
+### For
 
 
 ## Document Object Model (DOM)
