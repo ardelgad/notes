@@ -94,7 +94,51 @@ consolelog(city);  //Boston
 ## Loops
 ### For
 
+```javascript
+for(let i = 0; i<10; i++) {
+consolelog(i);}
+```
+### While
+```javascript
+let i =0;
+while(i<10) {
+consolelog(i);
+i++;}
+```
+### Loop through Arrays
+Get every value of an Array
+```javascript
+for( let X of arrayName){}
+```
+### ForEach
+```javascript
+let arr = [
+{
+id:1,
+text: Hi
+},
+{
+id:2,
+text: How are you?
+}
+]
+arr.forEach(function(variable){
+consolelog.variable.text}
+```
 
+### Map
+```javascript
+let arrText = arr.map(function(variable){
+return variable.text;
+}
+```
+## Conditionals
+```javascript
+const x = 10;
+if (x == 10){consolelog("X es un 10!")}
+else if (x>10) {consolelog("X es mayor a 10")}
+else {consolelog("X es menor a 10")}
+```
 ## Document Object Model (DOM)
 
 The Document Object Model (DOM) is an application programming interface (API) for HTML as well as XML.
