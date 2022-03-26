@@ -85,7 +85,7 @@ adress: {
 
 consolelog(person.hobbies[1]; //movies
 ```
--- ES6 allows you to get the values of an object out and asing them to a new variable for easier access. 
+-  ES6 allows you to get the values of an object out and asing them to a new variable for easier access. 
  ```javascript
 const {firstName, lastName, adress{city}} = person;
 consolelog(firstName);  //John
