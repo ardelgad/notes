@@ -50,7 +50,7 @@ Variables that hold multiple values
 ```javascript
 const fruits = ["apples", "oranges", "pears"];
 ```
--   Push
+-   Push => Adds a value to the beginning of the Array
  ```javascript
 fruits.push(mangos); //["apples", "oranges", "pears", "mangos"];
 ```
@@ -59,12 +59,12 @@ fruits.push(mangos); //["apples", "oranges", "pears", "mangos"];
 fruits.unshift(mangos);
 fruits.push(mangos); //["mangos", "apples", "oranges", "pears"];
 ```
--   isArray
+-   isArray => Is this an Array
 ```javascript
 consle.log(Array.isArray(fruits));   //true
 consle.log(Array.isArray(fruits));   //false
 ```
--   indexOf
+-   indexOf => Position of a value inside an Array
  ```javascript
 consle.log(fruits.indexOf(oranges); //2
 ```
