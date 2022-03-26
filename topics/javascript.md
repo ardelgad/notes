@@ -46,6 +46,29 @@ console.log(name.split(" ");    // ["technology" "computers" "it" "code"]
 ```
 
 ## Arrays
+Variables that hold multiple values
+```javascript
+const fruits = ["apples", "oranges", "pears"];
+```
+-   Push
+ ```javascript
+fruits.push(mangos); //["apples", "oranges", "pears", "mangos"];
+```
+-   unshift
+Adds a value to the beginning of the Array
+```javascript
+fruits.unshift(mangos);
+fruits.push(mangos); //["mangos", "apples", "oranges", "pears"];
+```
+-   isArray
+```javascript
+consle.log(Array.isArray(fruits));   //true
+consle.log(Array.isArray(fruits));   //false
+```
+-   indexOf
+ ```javascript
+consle.log(fruits.indexOf(oranges); //2
+```
 
 ## Document Object Model (DOM)
 
