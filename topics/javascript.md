@@ -1,7 +1,7 @@
 # Language
 
 
-# Variables
+## Variables
 
 ```javascript
 var a;     // Not used anymore
@@ -11,7 +11,7 @@ c = 2; // => 2
 const b = 2;   // Immutable
 b = 1;    // Error
 ```
-#Data Type
+## Data Type
 
 ```javascript
 const name = "John";    // String
