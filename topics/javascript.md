@@ -61,12 +61,35 @@ fruits.push(mangos); //["mangos", "apples", "oranges", "pears"];
 ```
 -   isArray => Is this an Array
 ```javascript
-consle.log(Array.isArray(fruits));   //true
-consle.log(Array.isArray(fruits));   //false
+console.log(Array.isArray(fruits));   //true
+console.log(Array.isArray(fruits));   //false
 ```
 -   indexOf => Position of a value inside an Array
  ```javascript
-consle.log(fruits.indexOf(oranges); //2
+console.log(fruits.indexOf(oranges); //2
+```
+
+## Objects
+```javascript
+const person = {
+firstName: "John",
+lastName: "Doe",
+age: 30,
+hobbies: ["music", "movies", "sports"],
+adress: {
+ street: "50 main st",
+ city: "Boston",
+ state: "MA"
+ }
+}
+
+consolelog(person.hobbies[1]; //movies
+```
+ - ES6 allows you to get the values of an object out and asing them to a new variable for easier access. 
+ ```javascript
+const {firstName, lastName, adress{city}} = person;
+consolelog(firstName);  //John
+consolelog(city);  //Boston
 ```
 
 ## Document Object Model (DOM)
