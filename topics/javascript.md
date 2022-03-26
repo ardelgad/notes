@@ -1,22 +1,31 @@
 # Language
 
-The complete JavaScript implementation is made up of three distinct parts:
 
--   The Core (based on ECMAScript spec)
--   The Document Object Model (DOM)
--   The Browser Object Model (BOM)
+# Variables
 
-## ECMAScript
-
-ECMA-262 describes it like this:
-
+```javascript
+var a;     // Not used anymore
+let c = 1;     // changes
+console.log(c);  // =>1
+c = 2; // => 2
+const b = 2;   // Immutable
+b = 1;    // Error
 ```
-ECMAScript can provide core scripting capabilities for a variety of host environments, and therefore the core scripting language is specified... apart from any particular host environment.
+#Data Type
+
+```javascript
+const name = "John";    // String
+let age = 30;     // Number 
+const IsCool = true;  // Boolean
+const x = null ;    // Null
+const y = undefined;   // Undefined
+```
+With typeof we get the data type of a variable
+
+```javascript
+console.log(typeofname);    //String
 ```
 
-A Web browser is considered a host environment for ECMAScript, but it is not the only host environment. A list of other host environments listed here.
-
-Apart from DOM and BOM, each browser has its own implementation of the ECMAScript interface.
 
 ## Document Object Model (DOM)
 
@@ -72,14 +81,6 @@ Without the `event loop` the stack would be blocked during the whole duration of
 # Hoisting
 
 Both variable and function declarations are hoisted to the top on code execution, meaning that their order is irrelevant i.e functions can be called before they are declared.
-
-# Variables
-
-```javascript
-var a;     // Regular.
-let c;     // Block scoped.
-const b;   // Immutable.
-```
 
 # Functions
 
