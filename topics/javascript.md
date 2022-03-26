@@ -24,8 +24,15 @@ With typeof we get the data type of a variable
 ```javascript
 console.log(typeof name);    //String
 ```
-
-With length we get the lenght of a variable, we can use toUppercase()/toLowerCase() to change the case, 
+-   length
+```javascript
+console.log(name.lenght;    //4
+```
+-   Change Case
+```javascript
+console.log(name.toUpperCase();    // JOHN
+console.log(name.toLowerCase();    // john
+```
 -   substring 
 ```javascript
 console.log(name.substring(0,3);    //Jo
