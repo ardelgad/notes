@@ -46,25 +46,52 @@ Async/Await enables us to write asynchronous code in a synchronous fashion. Unde
 In other words, async functions can “pull out” the value of a Promise even though it’s nested inside a callback function, giving us the ability to assign it to a variable.
 
 ```javascript
-async function foo() {
-    try{
-        let res = await fetch("https://jsonplaceholder.typicode.com/todos");
-        let data = await res.json()
-        console.log(data);
-    } catch (err){
-        console.log(err)
-    }
-};
+const posts = [
+{title: "Post One", body: "This is post one"}, 
+{title: "Post two", body: "This is post two"}
+];
 
-foo();
-
-// Fetch API comparison
-function foo() {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
+function getPosts(){
+settimeout(() => {      //Arrow Function
+let output = "";
+post.forEach((post,index) => {output += `<li>${post}.title</li>`;
+document.body.innerHTML = outpout;
+},1000);
 }
+
+function createPost(post) {
+return new Promise (resolve, reject= => {
+settimeout( () => {
+posts.push(post);
+
+const error = false;
+
+if(!error) {
+resolve();}
+
+else{
+reject("Error: Something went wrong");
+}
+}, 2000);
+});
+}
+
+asycn function innit(post: any){
+await createPost({title: "Post three", body: "This is post three"});
+//Wait until the first function is done to pass to the other
+getPosts();
+}
+
+init();
+```
+### Await with Fetch
+```javascript
+async function fetchUsers() {
+const res = await fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json());
+
+const data = await res.json();
+console.log(data);
+fetchUsers();
 ```
 
 Under the hood it looks like...
@@ -294,8 +321,8 @@ const promise2 = 10;
 const promise3 = New Promise(resolve, reject) => setTimeout(resolve, 2000, "Goodbye"));
 Promise.all([promise1, promise2, promise3]).then((values) => console.log(values)); //values == "Hello World", 10, Goodbye |it returns it in 2s
 ```
+### Fetch promises
 ```javascript
-//Fetch promises
 const promise4 = fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json());
 // With fetch we need to use 2 .then because if not it gives us a lot of data
 Promise.all([promise1, promise2, promise4]).then((values) => console.log(values));  
