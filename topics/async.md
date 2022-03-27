@@ -222,53 +222,6 @@ myPromise.then((res) => {
 ## Fetch under the hood with Promises
 
 ```javascript
-function fetch(method, url) {
-    return new Promise(function(resolve, reject) {
-        let xhr = new XMLHttpRequest();
-        xhr.open(method, url);
-        xhr.onload = function() {
-            if (this.status >= 200 && this.staus <= 300) {
-                resolve(xhr.response);
-            } else {
-                reject({
-                    status: this.status,
-                    statusText: xhr.statusText
-                });
-            }
-        };
-        xhr.onerror = function() {
-            reject({
-                status: this.status,
-                statusText: xhr.statusText
-            });
-        };
-        xhr.send();
-    });
-}
-
-fetch("GET", "http://jsonplaceholder.typicode.com/todos")
-    .then(function(data) {
-        let todos = JSON.parse(data);
-        let output = "";
-        for (let todo of todos) {
-            output += `
-                <li>
-                    <h3>${todo.title}</h3>
-                    <p>${todo.item}</p>
-                `;
-        }
-        document.getElementById("list").innerHTML = output;
-    })
-    .catch(function(err) {
-        console.log(err);
-    });
-```
-
-## Promise All
-
-Takes an array of promises and executes if they are all successful.
-
-```javascript
 const posts = [
 {title: "Post One", body: "This is post one"}, 
 {title: "Post two", body: "This is post two"}
@@ -302,6 +255,10 @@ createPost({title: "Post three", body: "This is post three"})
 .then(getPosts)     //Calls the function get posts after creating at posts
 .catch(err => console.log(err));    //If there's an error it console.logs the error
 ```
+
+## Promise All
+
+Takes an array of promises and executes if they are all successful.
 
 ## Chaining
 
