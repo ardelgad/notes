@@ -185,22 +185,6 @@ async function postData(){
 }
 ```
 
-# Callbacks
-```javascript
-const posts = [
-{title: "Post One", body: "This is post one"}, 
-{title: "Post two", body: "This is post two"}
-];
-
-function getPosts(){
-settimeout(() => {      //Arrow Function
-let output = "";
-post.forEach((post,index) => {output += `<li>${post}.title</li>`;
-document.body.innerHTML = outpout;
-},1000);
-}
-```
-
 # Promises
 
 The `Promise()` constructor takes a function, which takes the `resolve` and `reject` functions.
@@ -285,20 +269,38 @@ fetch("GET", "http://jsonplaceholder.typicode.com/todos")
 Takes an array of promises and executes if they are all successful.
 
 ```javascript
-Promise.all([
-    fetch("/api/endpoint"),
-    fetch("/api/another-endpoint"),
-    fetch("/api/yet-another-endpoint")
-])
-    .then(responses => {
-        // array of responses
-        console.log(responses[0]); // users
-        console.log(responses[1]); // products
-        console.log(responses[2]); // clients
-    })
-    .catch(err => {
-        console.log(err);
-    });
+const posts = [
+{title: "Post One", body: "This is post one"}, 
+{title: "Post two", body: "This is post two"}
+];
+
+function getPosts(){
+settimeout(() => {      //Arrow Function
+let output = "";
+post.forEach((post,index) => {output += `<li>${post}.title</li>`;
+document.body.innerHTML = outpout;
+},1000);
+}
+
+function createPost(post) {
+return new Promise (resolve, reject= => {
+settimeout( () => {
+posts.push(post);
+
+const error = false;
+
+if(!error) {
+resolve();}
+
+else{
+reject("Error: Something went wrong");
+}
+}, 2000);
+});
+}
+createPost({title: "Post three", body: "This is post three"})
+.then(getPosts)     //Calls the function get posts after creating at posts
+.catch(err => console.log(err));    //If there's an error it console.logs the error
 ```
 
 ## Chaining
@@ -322,15 +324,40 @@ A callback is a function that is to be executed after another function has finis
 In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions. Functions that do this are called **higher-order functions**. Any function that is passed as an argument is called a **callback function**.
 
 ```javascript
-function foo(input, callback) {
-    console.log(input);
-    callback();
+# Callbacks
+```javascript
+const posts = [
+{title: "Post One", body: "This is post one"}, 
+{title: "Post two", body: "This is post two"}
+];
+
+function getPosts(){
+settimeout(() => {      //Arrow Function
+let output = "";
+post.forEach((post,index) => {output += `<li>${post}.title</li>`;
+document.body.innerHTML = outpout;
+},1000);
 }
 
-// Anonymous callback. Logs Foo Bar.
-foo("Foo", function() {
-    console.log("Bar");
+function createPost(post) {
+settimeout( () => {
+posts.push(post);
+},2000);
+}
+getPosts();
+createPost({title: "Post three", body: "This is post three"});
 });
+```
+If you see the page at this moment there's only post1&2 because getPosts function executed faster than create post. to fix this we use asynchronis programming
+```javascript
+function createPost(post, callback) { //the same of above but with function as a parameter
+settimeout( () => {
+posts.push(post);
+callback();     //We want pur callback function to be getPosts so it show all of the posts
+},2000);
+}
+getPosts();
+createPost({title: "Post three", body: "This is post three"}, getPosts;
 ```
 
 Passing named functions.
