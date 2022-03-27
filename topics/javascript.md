@@ -7,7 +7,7 @@
 - [Conditionals](#Coditionals)
 - [Functions](#Functions)
 - [Classes](#Classes)
-- [Document Object Model (DOM)](#Document-Object-Model-(DOM))
+- [DOM](#Document-Object-Model-(DOM))
 - [Events](#Events)
 - [Hoisting](#Hoisting)
 - [Useful](#Useful)
