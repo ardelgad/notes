@@ -1,5 +1,17 @@
 # JavaScript
 - [Variables](#Variables)
+- [Data Types](#Data Type)
+- [Arrays](#Arrays)
+- [Objects](#Objects)
+- [Loops](#Loops)
+- [Conditionals](#Coditionals)
+- [Functions](#Functions)
+- [Classes](#Classes)
+- [DOM](#Document Object Model (DOM))
+- [Events](#Events)
+- [Hoisting](#Hoisting)
+- [Useful](#Useful)
+- [Debugging](#Debugging)
 ## Variables
 
 ```javascript
