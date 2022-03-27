@@ -259,6 +259,47 @@ createPost({title: "Post three", body: "This is post three"})
 ## Promise All
 
 Takes an array of promises and executes if they are all successful.
+```javascript
+const posts = [
+{title: "Post One", body: "This is post one"}, 
+{title: "Post two", body: "This is post two"}
+];
+
+function getPosts(){
+settimeout(() => {      //Arrow Function
+let output = "";
+post.forEach((post,index) => {output += `<li>${post}.title</li>`;
+document.body.innerHTML = outpout;
+},1000);
+}
+
+function createPost(post) {
+return new Promise (resolve, reject= => {
+settimeout( () => {
+posts.push(post);
+
+const error = false;
+
+if(!error) {
+resolve();}
+
+else{
+reject("Error: Something went wrong");
+}
+}, 2000);
+});
+}
+const promise1 = Promise.revolve ("Hello World");
+const promise2 = 10;
+const promise3 = New Promise(resolve, reject) => setTimeout(resolve, 2000, "Goodbye"));
+Promise.all([promise1, promise2, promise3]).then((values) => console.log(values)); //values == "Hello World", 10, Goodbye |it returns it in 2s
+```
+```javascript
+//Fetch promises
+const promise4 = fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json());
+// With fetch we need to use 2 .then because if not it gives us a lot of data
+Promise.all([promise1, promise2, promise4]).then((values) => console.log(values));  
+```
 
 ## Chaining
 
