@@ -185,6 +185,22 @@ async function postData(){
 }
 ```
 
+# Callbacks
+```javascript
+const posts = [
+{title: "Post One", body: "This is post one"}, 
+{title: "Post two", body: "This is post two"}
+];
+
+function getPosts(){
+settimeout(() => {      //Arrow Function
+let output = "";
+post.forEach((post,index) => {output += `<li>${post}.title</li>`;
+document.body.innerHTML = outpout;
+},1000);
+}
+```
+
 # Promises
 
 The `Promise()` constructor takes a function, which takes the `resolve` and `reject` functions.
