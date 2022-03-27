@@ -1,5 +1,5 @@
 # JavaScript
-
+- [Variables](#Variables)
 ## Variables
 
 ```javascript
