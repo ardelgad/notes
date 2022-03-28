@@ -463,15 +463,22 @@ This is all done via vanilla Javascript, but it can be done via libraries such a
 var xhr = new XMLHttpRequest();     // Create the XHR object | XML HTTP Request Object => xhr 
 
 xhr.open("GET", "http://www.api.com/data", true);   // xhr.type, url/file, is it async?
+console.log("readyState: ", xhr.readyState);    // readyState: 1
+
+    xhr.onprogress = function() {   // OPTIONAL Used for loader
+  console.log("readyState: ", xhr.readyState);    // readyState: 3
 
 xhr.onload = function() {   // When the xhr object loads 
     if (this.status == 200) {   // Check the status
-        return JSON.parse(this.responseText);
+      console.log("readyState: ", xhr.readyState);    // readyState: 4
+        return JSON.parse(this.responseText);    //this.responseText => brings the text
+        //If you want to access an specific part of the JSON object, you have to use JSON.parse (JSON.parse(this.responseText).name) => Rick 
+        document.querySelector().innetHTML = this.responseText;
     }
 };
 
-xhr.onerror = function() {      //Not necessary
-    console.log("error");
+ // Not necessary xhr.onerror = function() {
+     console.log("error");
 };
 
 xhr.send();     //Sends Request
@@ -529,11 +536,14 @@ We have to make sure we are on the `readyState 4`.
 var xhr = new XMLHttpRequest(); // Can be named req
 
 // Establish server connection - type, url/file, async
-xhr.open("GET", "http://www.api.com/data", true); // readyState 1
+xhr.open("GET", "http://www.api.com/data", true); 
+
+console.log("readyState: ", xhr.readyState);    // readyState: 1
 
 xhr.onreadystatechange = function() {
-    // readyState 1, 2, 3, 4
-    if (this.readyState == 4 && this.status == 200) {
+    console.log("readyState: ", xhr.readyState); // readyState: 1, readyState: 2, readyState: 3, readyState: 4
+    
+    if (this.readyState == 4 && this.status == 200) {   // When we use on readystatechange we have to use 4 so it runs
         return JSON.parse(this.responseText);
     }
 };
