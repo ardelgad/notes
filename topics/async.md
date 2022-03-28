@@ -456,25 +456,31 @@ ajax("GET", "http://www.api.com/data", event => {
 Which is pretty much what the ajax libraries do.
 
 # AJAX
-
+- Asynchronous JavaScript & XML
 This is all done via vanilla Javascript, but it can be done via libraries such as JQuery, Axios, Superagent, Fetch API, Node HTTP...
 
 ```javascript
-var xhr = new XMLHttpRequest();
+var xhr = new XMLHttpRequest();     // Create the XHR object | XML HTTP Request Object => xhr 
 
-xhr.open("GET", "http://www.api.com/data", true);
+xhr.open("GET", "http://www.api.com/data", true);   // xhr.type, url/file, is it async?
 
-xhr.onload = function() {
-    if (this.status == 200) {
+xhr.onload = function() {   // When the xhr object loads 
+    if (this.status == 200) {   // Check the status
         return JSON.parse(this.responseText);
     }
 };
 
-xhr.onerror = function() {
+xhr.onerror = function() {      //Not necessary
     console.log("error");
 };
 
-xhr.send();
+xhr.send();     //Sends Request
+```
+ **HTTP Status**
+```
+200: "OK"
+403: "Forbidden"
+404: "Not Found"
 ```
 
 Can also be done like this.
