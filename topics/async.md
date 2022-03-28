@@ -163,7 +163,7 @@ Fetch always returns a promise. Promise resolves to the response object. This re
 
 Fetch also takes a second parameter, which is a configuration object.
 
-## GET
+## GET INFO FROM API
 
 ```javascript
 // ES6
