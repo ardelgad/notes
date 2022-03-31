@@ -12,9 +12,9 @@
 ### Frontend
 
 -   Frameworks
-    -   [Svelte](./topics/svelte.md)
     -   [React](./topics/react.md)
     -   [Vue](./topics/vue.md)
+    -   [Svelte](./topics/svelte.md)
     -   [Electron](./topics/electron.md)
     -   [Elm](./topics/elm.md)
 -   Libraries
